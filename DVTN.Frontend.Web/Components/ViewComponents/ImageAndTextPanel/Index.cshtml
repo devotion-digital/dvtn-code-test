@@ -1,0 +1,24 @@
+@model DVTN.Frontend.Web.Components.ViewComponents.ImageAndTextPanel.ImageAndTextPanelViewModel
+
+<!--/// Component: ImageAndTextPanel ///-->
+<div class="cc-image-and-text-panel relative my-24 desktop-header:my-28">
+    <div class="container container-wide">
+        <div class="w-image-content-wrapper flex flex-col items-stretch md:flex-row lg:gap-x-10">
+            <div class="w-image relative flex-1 basis-1/2">
+                <img data-src="@Model.ImageUrl" alt="@Model.ImageAltText"
+                     class="lazyload lazyfade h-full w-full object-cover" width="1200" height="900">
+            </div>
+
+            <div class="w-content flex basis-1/2 items-center pt-10 md:p-16">
+                <div class="prose">
+                    <h2 class="h3">@Model.Heading</h2>
+                    <p>@Model.MainCopy</p>
+                    <div class="cta mt-7">
+                        <a href="#" class="btn-primary btn">@Model.ButtonText</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/// END Component: ImageAndTextPanel ///-->
