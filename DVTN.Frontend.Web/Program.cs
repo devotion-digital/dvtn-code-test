@@ -21,17 +21,20 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    // Use status pages with re-execution for failed requests with body data.
+    app.UseStatusCodePagesWithReExecute("/Error/{0}");
+    
+    // Use ExceptionHandler for failed requests with no body data.
+    app.UseExceptionHandler(new ExceptionHandlerOptions()
+    {
+        AllowStatusCode404Response = true,
+        ExceptionHandlingPath = "/Error/500"
+    });
+    
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-app.UseStatusCodePagesWithReExecute("/Error/{0}");
-app.UseExceptionHandler(new ExceptionHandlerOptions()
-{
-    AllowStatusCode404Response = true,
-    ExceptionHandlingPath = "/Error/500"
-});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

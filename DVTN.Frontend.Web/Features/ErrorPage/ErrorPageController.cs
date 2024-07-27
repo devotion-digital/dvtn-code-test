@@ -11,19 +11,14 @@ public class ErrorPageController : BaseController
     {
     }
     
-    // [Route("/Error")]
-    // public Task<ActionResult> Index() => Process<ErrorPageRequest, ErrorPageViewModel>(new ());
-    
-    // [Route("/Error/{code:int}")]
-    // public Task<ActionResult> Index() => Process<ErrorPageRequest, ErrorPageViewModel>(new ());
-    
     [Route("/Error/{code:int}")]
     public Task<ActionResult> Index(int code)
     {
+        // Retrieve the originally requested path for display on the page
         var featureContext = Request.HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
         var requestPath = featureContext?.OriginalPath;
-        //string queryString = string.IsNullOrEmpty(originalPath) ? "" : $"?originalPath={originalPath}";
         
+        // Create a default request. 
         var request = new ErrorPageRequest()
         {
             ErrorCode = StatusCodes.Status500InternalServerError,
@@ -31,6 +26,7 @@ public class ErrorPageController : BaseController
             CustomErrorMessage = string.Empty
         };
         
+        // Refine the error information to display. 
         switch (code)
         {
             case 404:
