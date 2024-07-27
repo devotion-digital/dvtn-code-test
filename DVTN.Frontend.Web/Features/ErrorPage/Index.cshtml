@@ -1,0 +1,16 @@
+@model DVTN.Frontend.Web.Features.ErrorPage.ErrorPageViewModel
+
+<div id="page-error">
+    <h1>@Model.ErrorCode</h1>
+    <p>We were unable to retrieve this page @Model.RequestedPath</p>
+    <p><a href="/">Return to Home</a></p>
+</div>
+
+@* Move to decompiled assets when available *@
+<style>
+    #page-error{
+        margin: auto;
+        text-align: center;
+        padding: 0 0 2rem 0;
+    }
+</style>

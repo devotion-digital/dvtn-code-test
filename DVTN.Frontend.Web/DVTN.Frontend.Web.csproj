@@ -18,4 +18,8 @@
     <_ContentIncludedByDefault Remove="Features\AboutUsPage\Index.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
 </Project>
