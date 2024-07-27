@@ -1,0 +1,18 @@
+@model DVTN.Frontend.Web.Components.ViewComponents.LargeTextPanel.LargeTextPanelViewModel
+
+<!--/// Component: LargeTextPanel ///-->
+<div class="cc-large-text-panel relative my-24 overflow-hidden bg-abergeldie-green text-white desktop-header:my-28">
+    <div class="container">
+        <div class="h2 relative z-10 grid min-h-[500px] max-w-[840px] items-center text-pretty py-28">
+            <p>@Model.Copy</p>
+        </div>
+    </div>
+
+    <div class="background absolute inset-0 -top-[30%] isolate overflow-hidden">
+        <div class="absolute left-0 top-0 z-10 h-full w-full bg-abergeldie-green opacity-80"></div>
+        <img class="lazyload lazyfade js-parallax h-full w-full bg-white object-cover grayscale"
+             src="@Model.ImageUrl"
+             data-src="/examples/hero-banner.jpg" alt="@Model.ImageAltText" data-y="30%">
+    </div>
+</div>
+<!--/// END Component: LargeTextPanel ///-->
